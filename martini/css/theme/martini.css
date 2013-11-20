@@ -31,6 +31,12 @@ body {
   width: 3em;
 }
 
+#avatar {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/
