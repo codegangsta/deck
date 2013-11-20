@@ -75,6 +75,7 @@ p {
   color: #ea5343;
 }
 
+.reveal p.center,
 .reveal h1.center,
 .reveal h2.center,
 .reveal h3.center,
@@ -83,6 +84,11 @@ p {
 .reveal h6.center {
   text-align: center;
 }
+
+.reveal pre code {
+  padding: 20px;
+}
+
 
 .accent {
   color: #ea5343;

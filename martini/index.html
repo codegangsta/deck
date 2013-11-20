@@ -38,7 +38,7 @@
 			<div class="slides">
 
         <section data-background="img/bg.jpg">
-        <h1 id="logo">Martini<span>.</span> </h1>
+        <h1 id="logo">Martini<span>.</span></h1>
         </section>
 
         <section data-background="img/bg.jpg">
@@ -161,6 +161,27 @@
         <section data-background="img/bg-4.jpg">
         <p>Chapter 3:</p>
         <h2>Extra DRY</h2>
+        </section>
+
+        <section data-background="img/bg-4.jpg">
+        <h1 id="logo">Martini<span>.</span></h1>
+        <p class="center fragment">Classy Web Development in Go</p>
+        </section>
+
+        <section data-background="img/bg-4.jpg">
+        <pre><code data-trim>
+package main
+
+import "github.com/codegangsta/martini"
+
+func main() {
+  m := martini.Classic()
+  m.Get("/", func() string {
+    return "Hello world!"
+  })
+  m.Run()
+}
+        </code></pre>
         </section>
 
         <section data-background="img/bg-5.jpg">
