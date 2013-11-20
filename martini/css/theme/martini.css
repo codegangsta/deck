@@ -26,6 +26,11 @@ body {
   background: rgba(0, 0, 0, 0.99);
   text-shadow: none; }
 
+.img-circle {
+  border-radius: 1000px;
+  width: 3em;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/
