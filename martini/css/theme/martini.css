@@ -75,6 +75,24 @@ p {
   color: #ea5343;
 }
 
+.reveal h1.center,
+.reveal h2.center,
+.reveal h3.center,
+.reveal h4.center,
+.reveal h5.center,
+.reveal h6.center {
+  text-align: center;
+}
+
+.accent {
+  color: #ea5343;
+}
+.reveal h1 .huge,
+.reveal h2 .huge {
+  color: white;
+  font-size: 300pt;
+}
+
 /*********************************************
  * LINKS
  *********************************************/
