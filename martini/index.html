@@ -184,6 +184,17 @@ func main() {
         </code></pre>
         </section>
 
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>Classic Martini</h2>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>Logging</h2>
+        <h2 class="fragment">Panic Recovery</h2>
+        <h2 class="fragment">Static File Serving</h2>
+        <h2 class="fragment">Routing</h2>
+        </section>
+
         <section data-background="img/bg-4.jpg">
         <h2>Martini handlers are special</h2>
         </section>
@@ -205,6 +216,41 @@ m.Get("/", func(res http.ResponseWriter, req *http.Request) {
 })
         </code></pre>
         <h4 class="fragment center">http.HandlerFunc compatible</h4>
+        </section>
+
+        <section data-background="img/bg-4.jpg">
+        <h2>Named parameters</h2>
+        </section>
+
+        <section data-background="img/bg-4.jpg">
+        <pre><code data-trim>
+m.Get("/hello/:name", func(params martini.Params) string {
+  return "Hello " + params["name"]
+})
+        </code></pre>
+        </section>
+
+        <section data-background="img/bg-4.jpg">
+        <pre><code data-trim>
+m.Get("/posts/:id", GetPost)
+        </code></pre>
+        <pre class="fragment"><code data-trim>
+func GetPost(params martini.Params) string {
+  return "Getting post " + params["id"]
+}
+        </code></pre>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>Services</h2>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h3>*log.Logger</h3>
+        <h3 class="fragment">martini.Context</h3>
+        <h3 class="fragment">martini.Params</h3>
+        <h3 class="fragment">http.ResponseWriter</h3>
+        <h3 class="fragment">*http.Request</h3>
         </section>
 
         <section data-background="img/bg-5.jpg">
@@ -229,7 +275,7 @@ m.Get("/", func(res http.ResponseWriter, req *http.Request) {
 
         <section data-background="img/bg-9.jpg">
         <p>Chapter 8:</p>
-        <h2>Vision</h2>
+        <h2>Questions?</h2>
         </section>
 
 			</div>
