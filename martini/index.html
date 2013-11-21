@@ -146,6 +146,10 @@
         <h2>The standard packages are awesome</h2>
         </section>
 
+        <section data-background="img/bg-3.jpg">
+        <h2>Go doesn't need a killer framework</h2>
+        </section>
+
         <section data-background="#ea5343">
         <h2>Unnecessary Abstractions</h2>
         </section>
@@ -207,7 +211,7 @@ m.Get("/", func() string {
         </code></pre>
         <pre class="fragment"><code data-trim>
 m.Get("/", func() (int, string) {
-  return 418, "i'm a teapot" // HTTP 418 : "i'm a teapot"
+  return 418, "i'm a teapot" // HTTP 418 i'm a teapot
 })
         </code></pre>
         <pre class="fragment"><code data-trim>
@@ -253,9 +257,76 @@ func GetPost(params martini.Params) string {
         <h3 class="fragment">*http.Request</h3>
         </section>
 
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>Inquiries?</h2>
+        </section>
+
         <section data-background="img/bg-5.jpg">
         <p>Chapter 4:</p>
         <h2>Route Like a Boss</h2>
+        </section>
+
+        <section data-background="img/bg-5.jpg">
+        <h2>martini.Router</h2>
+        <p class="fragment">(Embedded in a Classic Martini)</p>
+        </section>
+
+        <section data-background="img/bg-5.jpg">
+        <h2 class="center">HTTP Verbs</h2>
+        <pre class="fragment"><code data-trim>
+m.Get("/posts/:id", GetPost)
+        </code></pre>
+        <pre class="fragment"><code data-trim>
+m.Post("/posts", CreatePost)
+        </code></pre>
+        <pre class="fragment"><code data-trim>
+m.Put("/posts/:id", UpdatePost)
+        </code></pre>
+        <pre class="fragment"><code data-trim>
+m.Delete("/posts/:id", DeletePost)
+        </code></pre>
+        </section>
+
+        <section data-background="img/bg-5.jpg">
+        <h2 class="center">Custom 404s</h2>
+        <pre class="fragment"><code data-trim>
+m.NotFound(func(res http.ResponseWriter) {
+  res.WriteHeader(404)
+})
+        </code></pre>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>Route Handlers can Stack</h2>
+        </section>
+        
+        <section data-background="#ea5343" data-transition="linear">
+        <pre><code data-trim>
+func Auth(res http.ResponseWriter, req *http.Request) {
+  if req.Header.Get("X-API-KEY") != "secret123" {
+    res.WriteHeader(401)
+  }
+}
+        </code></pre>
+
+        <pre class="fragment"><code data-trim>
+func GetPost(params martini.Params) string {
+  return "Post " + params["id"]
+}
+        </code></pre>
+        <pre class="fragment"><code data-trim>
+m.Get("/posts/:id", Auth, GetPost)
+        </code></pre>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>Martini will stop when a response is written.</h2>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <pre><code data-trim>
+m.Get("/posts/:id", You, Can, Stack, All, The, Things)
+        </code></pre>
         </section>
 
         <section data-background="img/bg-6.jpg">
@@ -275,7 +346,7 @@ func GetPost(params martini.Params) string {
 
         <section data-background="img/bg-9.jpg">
         <p>Chapter 8:</p>
-        <h2>Questions?</h2>
+        <h2>Inquiries?</h2>
         </section>
 
 			</div>
