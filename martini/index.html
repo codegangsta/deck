@@ -73,7 +73,7 @@
 
         <section data-background="#ea5343" data-transition="linear">
           <p>I enjoy</p>
-          <h1>Rapping about Tech.</h1>
+          <h1>Tech Rapping.</h1>
         </section>
 
         <section data-background="#ea5343" data-transition="linear">
@@ -399,9 +399,102 @@ func Log(log *log.Logger, c martini.Context) {
         <h2>Dependency Injection is the Devil</h2>
         </section>
 
+        <section data-background="img/bg-7.jpg">
+        <h2>Or is it?</h2>
+        </section>
+
+        <section data-background="img/bg-7.jpg">
+        <h2>Dependency injection can be a good thing.</h2>
+        </section>
+
+        <section data-background="img/bg-7.jpg">
+        <pre><code data-trim>
+func Auth(res http.ResponseWriter, req *http.Request) {
+  if req.Header.Get("X-API-KEY") != "secret123" {
+    res.WriteHeader(401)
+  }
+}
+        </code></pre>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h3>Testable Code</h3>
+        <h3 class="fragment">Context</h3>
+        <h3 class="fragment">Reusability</h3>
+        <h3 class="fragment">Flexible Interfaces</h3>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>Services</h2>
+        <h4 class="fragment">Global and Request</h4>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>inject.Injector</h2>
+        <h4 class="fragment">github.com/codegangsta/inject</h4>
+        </section>
+
+        <section data-background="img/bg-7.jpg">
+        <h2 class="center">Global Services</h2>
+        <pre><code data-trim>
+m := martini.Classic()
+db := sql.NewDatabase()
+m.Map(db) // *sql.Database
+        </code></pre>
+        </section>
+
+        <section data-background="img/bg-7.jpg">
+        <h2 class="center">Request Services</h2>
+        <pre><code data-trim>
+func Session(c Context, r *http.Request) {
+  c.Map(session.Get(r)) // *session.Session
+}
+        </code></pre>
+        </section>
+
+        <section data-background="img/bg-7.jpg">
+        <h2 class="center">Mapping Interfaces</h2>
+        <pre><code data-trim>
+func Check(c Context, res http.ResponseWriter) {
+  var rw = martini.NewResponseWriter(res)
+  c.MapTo(rw, (*http.ResponseWriter)(nil))
+
+  // next middleware
+  c.Next()
+
+  if rw.Status() == 200 {
+    // do something
+  }
+}
+        </code></pre>
+        </section>
+
         <section data-background="img/bg-8.jpg">
         <p>Chapter 7:</p>
         <h2>The Pragmatic Goprammer</h2>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h1>Vision</h1>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h1>Tiny Core</h1>
+        </section>
+        
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>More Handlers</h2>
+        <h2 class="fragment">More Middleware<h2>
+        <h2 class="fragment">More Videos</h2>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>martini-contrib</h2>
+        <h4 class="fragment">github.com/codegangsta/martini-contrib</h4>
+        </section>
+
+        <section data-background="img/bg-8.jpg" data-transition="linear">
+        <h2>Let's build the Web with Go!</h2>
         </section>
 
         <section data-background="img/bg-9.jpg">
@@ -409,6 +502,10 @@ func Log(log *log.Logger, c martini.Context) {
         <h2>Inquiries?</h2>
         </section>
 
+        <section data-background="#ea5343" data-transition="linear">
+          <h2>@codegangsta</h2>
+          <h3 class="fragment">github.com/codegangsta</h3>
+        </section>
 			</div>
 
 		</div>
