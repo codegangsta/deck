@@ -151,7 +151,7 @@
         </section>
 
         <section data-background="#ea5343">
-        <h2>Empower the use of the standard packages</h2>
+        <h2>Empower use of the standard packages</h2>
         </section>
 
         <section data-background="#ea5343">
@@ -182,6 +182,29 @@ func main() {
   m.Run()
 }
         </code></pre>
+        </section>
+
+        <section data-background="img/bg-4.jpg">
+        <h2>Martini handlers are special</h2>
+        </section>
+
+        <section data-background="img/bg-4.jpg">
+        <pre><code data-trim>
+m.Get("/", func() string {
+  return "Hello world!" // 200 Hello world!
+})
+        </code></pre>
+        <pre class="fragment"><code data-trim>
+m.Get("/", func() (int, string) {
+  return 418, "i'm a teapot" // HTTP 418 : "i'm a teapot"
+})
+        </code></pre>
+        <pre class="fragment"><code data-trim>
+m.Get("/", func(res http.ResponseWriter, req *http.Request) {
+  res.Write([]byte("Hello world!")) // 200 Hello world!
+})
+        </code></pre>
+        <h4 class="fragment center">http.HandlerFunc compatible</h4>
         </section>
 
         <section data-background="img/bg-5.jpg">
