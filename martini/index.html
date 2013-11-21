@@ -283,6 +283,9 @@ m.Post("/posts", CreatePost)
 m.Put("/posts/:id", UpdatePost)
         </code></pre>
         <pre class="fragment"><code data-trim>
+m.Patch("/posts/:id", UpdatePost)
+        </code></pre>
+        <pre class="fragment"><code data-trim>
 m.Delete("/posts/:id", DeletePost)
         </code></pre>
         </section>
@@ -332,6 +335,63 @@ m.Get("/posts/:id", You, Can, Stack, All, The, Things)
         <section data-background="img/bg-6.jpg">
         <p>Chapter 5:</p>
         <h2>Middlewhat?</h2>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <h2>Middlewares are just Handlers</h2>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <pre><code data-trim>
+m.Use(func() {
+  // do middlewary things
+})
+        </code></pre>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <h2>Middleware is executed in the order that they are declared.</h2>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <pre><code data-trim>
+func Auth(res http.ResponseWriter, req *http.Request) {
+  if req.Header.Get("X-API-KEY") != "secret123" {
+    res.WriteHeader(401)
+  }
+}
+        </code></pre>
+
+        <pre class="fragment"><code data-trim>
+m.Use(Auth)
+        </code></pre>
+        <h2 class="center fragment">Yup. That easy</h2>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <h1>Extreme Reuse</h1>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h1>Next</h1>
+        <h4 class="fragment">Yield to the rest of the stack</h4>
+        <h4 class="fragment">Totally optional</h4>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <pre><code data-trim>
+func Log(log *log.Logger, c martini.Context) {
+  log.Println("Before")
+
+  c.Next() // run the rest of the stack
+
+  log.Println("After")
+}
+        </code></pre>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <h2>Unlike other frameworks, Next is completely optional<span>.</span></h2>
         </section>
 
         <section data-background="img/bg-7.jpg">
