@@ -303,7 +303,7 @@ m.NotFound(func(res http.ResponseWriter) {
         <h2>Route Handlers can Stack</h2>
         </section>
         
-        <section data-background="#ea5343" data-transition="linear">
+        <section data-background="img/bg-5.jpg">
         <pre><code data-trim>
 func Auth(res http.ResponseWriter, req *http.Request) {
   if req.Header.Get("X-API-KEY") != "secret123" {
@@ -326,7 +326,7 @@ m.Get("/posts/:id", Auth, GetPost)
         <h2>Martini will stop when a response is written.</h2>
         </section>
 
-        <section data-background="#ea5343" data-transition="linear">
+        <section data-background="img/bg-5.jpg">
         <pre><code data-trim>
 m.Get("/posts/:id", You, Can, Stack, All, The, Things)
         </code></pre>
