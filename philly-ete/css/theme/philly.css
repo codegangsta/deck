@@ -46,7 +46,8 @@ body {
   text-shadow: none;
   word-wrap: break-word; }
 
-.reveal section.center {
+.reveal section.center,
+.reveal section section.center {
   text-align: center}
 
 .reveal h1 {
@@ -69,6 +70,9 @@ body {
 
 .reveal .lead {
   font-weight: normal; }
+
+.reveal .huge {
+  font-size: 7em;}
 
 /*********************************************
  * OTHER
