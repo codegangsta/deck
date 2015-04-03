@@ -38,475 +38,196 @@
 			<div class="slides">
 
         <section data-background="img/bg.jpg">
-        <h1 id="logo">Martini<span>.</span></h1>
-        </section>
-
-        <section data-background="img/bg.jpg">
-        <h2>How I Learned to Stop Worrying and Love the Dependency Injection<span>.</span></h2>
+          <h1 id="logo">Martini<span>.</span></h1>
         </section>
 
         <section data-background="#ea5343" data-transition="linear">
-        <p>Introduction:</p>
-        <h2>About Me</h2>
+          <h3>Classy Web Development in Go.</h3>
         </section>
 
         <section data-background="#ea5343" data-transition="linear">
-          <img id="avatar" class="image img-circle" src="img/avatar.png" alt="" />
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-          <h2 class="fragment">Flex/Flash</h2>
-          <h2 class="fragment">C/C++</h2>
-          <h2 class="fragment">Ruby/Rails</h2>
-          <h2 class="fragment">Go</h2>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-          <p>I enjoy</p>
-          <h1>Writing Code.</h1>
-        </section>
-        
-        <section data-background="#ea5343" data-transition="linear">
-          <p>I enjoy</p>
-          <h1>Brewing Beer.</h1>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-          <p>I enjoy</p>
-          <h1>Tech Rapping.</h1>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-          <h4 class="fragment">github.com/codegangsta/cli</h4>
-          <h4 class="fragment">github.com/codegangsta/martini</h4>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-          <h2>@codegangsta</h2>
-          <h3 class="fragment">github.com/codegangsta</h3>
+          <h2>Simplicity =</h2>
+          <h2>Beauty +</h2>
+          <h2>Elegance</h2>
         </section>
 
         <section data-background="img/bg-2.jpg">
-        <p>Chapter 1:</p>
-        <h2>The Web of All the Things</h2>
+          <h1>Getting Started</h1>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+          <h2>Handlers</h2>
+          <h2 class="fragment">Services</h2>
+          <h2 class="fragment">Middleware</h2>
         </section>
 
         <section data-background="img/bg-2.jpg">
-        <h1>The Web is Changing<span>.</span></h1>
+          <h1>Handlers</h1>
+          <h4>The bread and butter of Martini</h4>
         </section>
 
         <section data-background="img/bg-2.jpg">
-        <h2>Monolithic</h2>
-        <p>to</p>
-        <h2>Service Oriented</h2>
+          <h2>Handlers ask for their dependencies</h2>
         </section>
 
         <section data-background="img/bg-2.jpg">
-        <h3>Era of the</h3>
-        <h1>Living Web<span>.</span></h1>
+        <pre><code data-trim>
+func MyHandler(l *log.Logger, r http.ResponseWriter) {
+  l.Println("Handling!")
+}
+        </code></pre>
         </section>
 
-        <section data-background="#ea5343" data-transition="linear">
-        <h2 class="center"><span class="huge">5</span> years</h2>
+        <section data-background="img/bg-2.jpg">
+          <h2>Handlers can return their response</h2>
         </section>
 
-        <section data-background="#ea5343" data-transition="linear">
-        <h2 class="center"><span class="huge">50</span> years</h2>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>tiny, stable, efficient services.</h2>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h1 class="center"><span class="huge">Go</span></h1>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-          <h2>Simple Deployment</h2>
-          <h2 class="fragment">Easy to Learn</h2>
-          <h2 class="fragment">Very Fast</h2>
-          <h2 class="fragment">Feature Rich</h2>
+        <section data-background="img/bg-2.jpg">
+        <pre><code data-trim>
+func Hello() string {
+  return "Hi"
+}
+        </code></pre>
+        <pre class="fragment"><code data-trim>
+func NotFound() (int, string) {
+  return 404, "Not Found"
+}
+        </code></pre>
         </section>
 
         <section data-background="img/bg-3.jpg">
-        <p>Chapter 2:</p>
-        <h2>Shaken, not Stirred</h2>
+          <h1>Services</h1>
+          <h4>Objects that are injected into handlers</h4>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+          <h3>*log.Logger</h3>
+          <h3 class="fragment">martini.Context</h3>
+          <h3 class="fragment">martini.Params</h3>
+          <h3 class="fragment">http.ResponseWriter</h3>
+          <h3 class="fragment">*http.Request</h3>
+        </section>
+
+        <section data-background="#ea5343" data-transition="linear">
+        <h2>Global & Request</h2>
         </section>
 
         <section data-background="img/bg-3.jpg">
-        <img src="img/gopher.jpg" alt="" />
-        </section>
-
-        <section data-background="img/bg-3.jpg">
-        <h1>Gophers are Picky</h1>
-        </section>
-
-        <section data-background="img/bg-3.jpg">
-        <h2>The standard packages are awesome</h2>
-        </section>
-
-        <section data-background="img/bg-3.jpg">
-        <h2>Go doesn't need a killer framework</h2>
-        </section>
-
-        <section data-background="#ea5343">
-        <h2>Unnecessary Abstractions</h2>
-        </section>
-
-        <section data-background="#ea5343">
-        <h2>Empower use of the standard packages</h2>
-        </section>
-
-        <section data-background="#ea5343">
-        <h2>Don't get in the way</h2>
-        </section>
-
-        <section data-background="img/bg-4.jpg">
-        <p>Chapter 3:</p>
-        <h2>Extra DRY</h2>
-        </section>
-
-        <section data-background="img/bg-4.jpg">
-        <h1 id="logo">Martini<span>.</span></h1>
-        <p class="center fragment">Classy Web Development in Go</p>
-        </section>
-
-        <section data-background="img/bg-4.jpg">
-        <pre><code data-trim>
-package main
-
-import "github.com/codegangsta/martini"
-
-func main() {
-  m := martini.Classic()
-  m.Get("/", func() string {
-    return "Hello world!"
-  })
-  m.Run()
-}
-        </code></pre>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>Classic Martini</h2>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>Logging</h2>
-        <h2 class="fragment">Panic Recovery</h2>
-        <h2 class="fragment">Static File Serving</h2>
-        <h2 class="fragment">Routing</h2>
-        </section>
-
-        <section data-background="img/bg-4.jpg">
-        <h2>Martini handlers are special</h2>
-        </section>
-
-        <section data-background="img/bg-4.jpg">
-        <pre><code data-trim>
-m.Get("/", func() string {
-  return "Hello world!" // 200 Hello world!
-})
-        </code></pre>
-        <pre class="fragment"><code data-trim>
-m.Get("/", func() (int, string) {
-  return 418, "i'm a teapot" // HTTP 418 i'm a teapot
-})
-        </code></pre>
-        <pre class="fragment"><code data-trim>
-m.Get("/", func(res http.ResponseWriter, req *http.Request) {
-  res.Write([]byte("Hello world!")) // 200 Hello world!
-})
-        </code></pre>
-        <h4 class="fragment center">http.HandlerFunc compatible</h4>
-        </section>
-
-        <section data-background="img/bg-4.jpg">
-        <h2>Named parameters</h2>
-        </section>
-
-        <section data-background="img/bg-4.jpg">
-        <pre><code data-trim>
-m.Get("/hello/:name", func(params martini.Params) string {
-  return "Hello " + params["name"]
-})
-        </code></pre>
-        </section>
-
-        <section data-background="img/bg-4.jpg">
-        <pre><code data-trim>
-m.Get("/posts/:id", GetPost)
-        </code></pre>
-        <pre class="fragment"><code data-trim>
-func GetPost(params martini.Params) string {
-  return "Getting post " + params["id"]
-}
-        </code></pre>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>Services</h2>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h3>*log.Logger</h3>
-        <h3 class="fragment">martini.Context</h3>
-        <h3 class="fragment">martini.Params</h3>
-        <h3 class="fragment">http.ResponseWriter</h3>
-        <h3 class="fragment">*http.Request</h3>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>Inquiries?</h2>
-        </section>
-
-        <section data-background="img/bg-5.jpg">
-        <p>Chapter 4:</p>
-        <h2>Route Like a Boss</h2>
-        </section>
-
-        <section data-background="img/bg-5.jpg">
-        <h2>martini.Router</h2>
-        <p class="fragment">(Embedded in a Classic Martini)</p>
-        </section>
-
-        <section data-background="img/bg-5.jpg">
-        <h2 class="center">HTTP Verbs</h2>
-        <pre class="fragment"><code data-trim>
-m.Get("/posts/:id", GetPost)
-        </code></pre>
-        <pre class="fragment"><code data-trim>
-m.Post("/posts", CreatePost)
-        </code></pre>
-        <pre class="fragment"><code data-trim>
-m.Put("/posts/:id", UpdatePost)
-        </code></pre>
-        <pre class="fragment"><code data-trim>
-m.Patch("/posts/:id", UpdatePost)
-        </code></pre>
-        <pre class="fragment"><code data-trim>
-m.Delete("/posts/:id", DeletePost)
-        </code></pre>
-        </section>
-
-        <section data-background="img/bg-5.jpg">
-        <h2 class="center">Custom 404s</h2>
-        <pre class="fragment"><code data-trim>
-m.NotFound(func(res http.ResponseWriter) {
-  res.WriteHeader(404)
-})
-        </code></pre>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>Route Handlers can Stack</h2>
-        </section>
-        
-        <section data-background="img/bg-5.jpg">
-        <pre><code data-trim>
-func Auth(res http.ResponseWriter, req *http.Request) {
-  if req.Header.Get("X-API-KEY") != "secret123" {
-    res.WriteHeader(401)
-  }
-}
-        </code></pre>
-
-        <pre class="fragment"><code data-trim>
-func GetPost(params martini.Params) string {
-  return "Post " + params["id"]
-}
-        </code></pre>
-        <pre class="fragment"><code data-trim>
-m.Get("/posts/:id", Auth, GetPost)
-        </code></pre>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>Martini will stop when a response is written.</h2>
-        </section>
-
-        <section data-background="img/bg-5.jpg">
-        <pre><code data-trim>
-m.Get("/posts/:id", You, Can, Stack, All, The, Things)
-        </code></pre>
-        </section>
-
-        <section data-background="img/bg-6.jpg">
-        <p>Chapter 5:</p>
-        <h2>Middlewhat?</h2>
-        </section>
-
-        <section data-background="img/bg-6.jpg">
-        <h2>Middlewares are just Handlers</h2>
-        </section>
-
-        <section data-background="img/bg-6.jpg">
-        <pre><code data-trim>
-m.Use(func() {
-  // do middlewary things
-})
-        </code></pre>
-        </section>
-
-        <section data-background="img/bg-6.jpg">
-        <h2>Middleware is executed in the order that they are declared.</h2>
-        </section>
-
-        <section data-background="img/bg-6.jpg">
-        <pre><code data-trim>
-func Auth(res http.ResponseWriter, req *http.Request) {
-  if req.Header.Get("X-API-KEY") != "secret123" {
-    res.WriteHeader(401)
-  }
-}
-        </code></pre>
-
-        <pre class="fragment"><code data-trim>
-m.Use(Auth)
-        </code></pre>
-        <h2 class="center fragment">Yup. That easy</h2>
-        </section>
-
-        <section data-background="img/bg-6.jpg">
-        <h1>Extreme Reuse</h1>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h1>Next</h1>
-        <h4 class="fragment">Yield to the rest of the stack</h4>
-        <h4 class="fragment">Totally optional</h4>
-        </section>
-
-        <section data-background="img/bg-6.jpg">
-        <pre><code data-trim>
-func Log(log *log.Logger, c martini.Context) {
-  log.Println("Before")
-
-  c.Next() // run the rest of the stack
-
-  log.Println("After")
-}
-        </code></pre>
-        </section>
-
-        <section data-background="img/bg-6.jpg">
-        <h2>Unlike other frameworks, Next is completely optional<span>.</span></h2>
-        </section>
-
-        <section data-background="img/bg-7.jpg">
-        <p>Chapter 6:</p>
-        <h2>Dependency Injection is the Devil</h2>
-        </section>
-
-        <section data-background="img/bg-7.jpg">
-        <h2>Or is it?</h2>
-        </section>
-
-        <section data-background="img/bg-7.jpg">
-        <h2>Dependency injection can be a good thing.</h2>
-        </section>
-
-        <section data-background="img/bg-7.jpg">
-        <pre><code data-trim>
-func Auth(res http.ResponseWriter, req *http.Request) {
-  if req.Header.Get("X-API-KEY") != "secret123" {
-    res.WriteHeader(401)
-  }
-}
-        </code></pre>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h3>Testable Code</h3>
-        <h3 class="fragment">Context</h3>
-        <h3 class="fragment">Reusability</h3>
-        <h3 class="fragment">Flexible Interfaces</h3>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>Services</h2>
-        <h4 class="fragment">Global and Request</h4>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h2>inject.Injector</h2>
-        <h4 class="fragment">github.com/codegangsta/inject</h4>
-        </section>
-
-        <section data-background="img/bg-7.jpg">
         <h2 class="center">Global Services</h2>
         <pre><code data-trim>
 m := martini.Classic()
-db := sql.NewDatabase()
-m.Map(db) // *sql.Database
+db, _ := sql.Open("postgres","dbname=foobar")
+m.Map(db) // *sql.DB
         </code></pre>
         </section>
 
-        <section data-background="img/bg-7.jpg">
+        <section data-background="img/bg-3.jpg">
         <h2 class="center">Request Services</h2>
         <pre><code data-trim>
-func Session(c Context, r *http.Request) {
-  c.Map(session.Get(r)) // *session.Session
+func MapSession(c Context, r *http.Request) {
+  c.Map(session.FromRequest(r)) // *session.Session
 }
         </code></pre>
         </section>
 
-        <section data-background="img/bg-7.jpg">
-        <h2 class="center">Mapping Interfaces</h2>
-        <pre><code data-trim>
-func Check(c Context, res http.ResponseWriter) {
-  var rw = martini.NewResponseWriter(res)
-  c.MapTo(rw, (*http.ResponseWriter)(nil))
-
-  // next middleware
-  c.Next()
-
-  if rw.Status() == 200 {
-    // do something
-  }
-}
-        </code></pre>
-        </section>
-
-        <section data-background="img/bg-8.jpg">
-        <p>Chapter 7:</p>
-        <h2>The Pragmatic Goprammer</h2>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h1>Vision</h1>
-        </section>
-
-        <section data-background="#ea5343" data-transition="linear">
-        <h1>Tiny Core</h1>
+        
+        <section data-background="img/bg-4.jpg">
+          <h1>Middlware</h1>
+          <h4>Application level filters</h4>
         </section>
         
         <section data-background="#ea5343" data-transition="linear">
-        <h2>More Handlers</h2>
-        <h2 class="fragment">More Middleware<h2>
-        <h2 class="fragment">More Videos</h2>
+        <h2>Middleware are just Handlers</h2>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+          <h1>Martini Contrib</h1>
         </section>
 
         <section data-background="#ea5343" data-transition="linear">
-        <h2>martini-contrib</h2>
-        <h4 class="fragment">github.com/codegangsta/martini-contrib</h4>
+          <h1>render</h1>
+          <h4>Middleware for rendering serialized JSON & HTML templates.</h4>
         </section>
 
-        <section data-background="img/bg-8.jpg" data-transition="linear">
-        <h2>Let's build the Web with Go!</h2>
+        <section data-background="img/bg-6.jpg">
+        <pre><code data-trim>
+m.Use(render.Renderer())
+
+m.Get("/html", func(r render.Render) {
+  r.HTML(200, "template", "jeremy")
+})
+
+m.Get("/json", func(r render.Render) {
+  r.JSON(200, myStruct)
+})
+        </code></pre>
         </section>
 
-        <section data-background="img/bg-9.jpg">
-        <p>Chapter 8:</p>
-        <h2>Inquiries?</h2>
+        <section data-background="img/bg-6.jpg">
+        <pre><code data-trim>
+m.Use(render.Renderer(render.Options{
+  Directory: "templates", 
+  Layout: "layout", 
+  Extensions: []string{".tmpl", ".html"}, 
+  Funcs: []template.FuncMap{AppHelpers}, 
+  Delims: render.Delims{"{[{", "}]}"}, 
+  Charset: "UTF-8", 
+  IndentJSON: true, 
+  HTMLContentType: "application/xhtml+xml", 
+}))
+        </code></pre>
+        </section>
+
+
+        <section data-background="#ea5343" data-transition="linear">
+          <h1>gzip</h1>
+          <h4>Middleware to zip all the things.</h4>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <pre><code data-trim>
+// gzip every request
+m.Use(gzip.All())
+        </code></pre>
         </section>
 
         <section data-background="#ea5343" data-transition="linear">
-          <h2>@codegangsta</h2>
-          <h3 class="fragment">github.com/codegangsta</h3>
+          <h1>sessions</h1>
+          <h4>Easy session management</h4>
         </section>
-			</div>
+
+        <section data-background="img/bg-6.jpg">
+        <pre><code data-trim>
+store := sessions.NewCookieStore([]byte("secret123"))
+m.Use(sessions.Sessions("my_session", store))
+        </code></pre>
+        </section>
+
+        <section data-background="img/bg-6.jpg">
+        <pre><code data-trim>
+m.Get("/set", func(session sessions.Session) string {
+  session.Set("hello", "world")
+  return "OK"
+})
+
+m.Get("/get", func(session sessions.Session) string {
+  v := session.Get("hello")
+  if v == nil {
+    return ""
+  }
+  return v.(string)
+})
+        </code></pre>
+        </section>
+
+        <section data-background="img/bg-7.jpg">
+        <h1>Moving Forward</h1>
+        </section>
+
+        <section data-background="img/bg.jpg">
+        <h1>Questions?</h1>
+        </section>
+      </div>
 
 		</div>
 
