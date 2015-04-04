@@ -34,6 +34,10 @@ body {
   text-align: left;
   font-weight: inherit; }
 
+.img-circle {
+  border-radius: 1000px;
+  width: 3em;
+}
 /*********************************************
  * HEADERS
  *********************************************/
