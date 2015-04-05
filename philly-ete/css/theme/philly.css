@@ -11,6 +11,7 @@ body {
   background-color: #2E373F; }
 
 .stripe {
+  z-index: 99999999;
   width: 100%;
   height: 20px;
   bottom: 0;

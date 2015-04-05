@@ -36,8 +36,6 @@
 
 	<body>
 
-    <div class="stripe"></div>
-
 		<div class="reveal">
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
@@ -71,6 +69,12 @@
           <section class="center">
             <h2>Antiframework</h2>
           </section>
+
+          <section>
+            <h3>1. The Rise</h3>
+            <h3 class="fragment">2. The Fall</h3>
+            <h3 class="fragment">3. The Rebirth</h3>
+          </section>
         </section>
 
         <!-- About Me -->
@@ -83,10 +87,22 @@
             <img class="img-circle" src="img/jeremy.jpg" alt="" />
           </section>
           <section class="center">
+            <img src="img/kajabi.png" alt="" />
+          </section>
+          <section class="center">
             <img src="img/martini-stars.png" alt="" />
             <img class="fragment" src="img/cli-stars.png" alt="" />
             <img class="fragment" src="img/negroni-stars.png" alt="" />
             <img class="fragment" src="img/gin-stars.png" alt="" />
+          </section>
+          <section class="center">
+            <img src="img/gophercasts.png" alt="" />
+          </section>
+          <section class="center">
+            <img src="img/bwag.jpg" alt="" />
+          </section>
+          <section class="center">
+            <img src="img/essentialgo.png" alt="" />
           </section>
         </section>
 
@@ -97,14 +113,88 @@
             <h1>The Rise</h1>
           </section>
           <section>
-            <h2>Back in 2013...</h2>
+            <h2>Back in 2012...</h2>
           </section>
+          <section data-background="img/kramer.gif"></section>
+          <section>
+            <img src="img/cli.png" alt="" />
+          </section>
+          <section>
+            <h4>codegangsta/cli</h4>
+          </section>
+          <section>
+            <h2>What next?</h2>
+          </section>
+          <section>
+            <h4>codegangsta/inject</h4>
+          </section>
+          <section class="center">
+            <img src="img/inject.jpg" alt="" />
+          </section>
+          <section class="center">
+            <h1>Martini.</h1>
+            <p>Classy Web Development in Go</p>
+          </section>
+          <section class="center">
+            <img src="img/martini.png" alt="" />
+          </section>
+          <section>
+            <h2>The Demo</h2>
+          </section>
+          <section>
+            <h3>Simple</h3>
+            <h3>Clean</h3>
+            <h3>Beautiful</h3>
+          </section>
+          <section>
+            <pre><code data-trim>
+func Auth(res http.ResponseWriter, req *http.Request) {
+  if req.Header.Get("X-API-KEY") != "secret123" {
+    res.WriteHeader(401)
+  }
+}
+            </code></pre>
+          </section>
+          <section class="center">
+            <img src="img/contrib.png" alt="" />
+          </section>
+
         </section>
 
         <!-- The Fall -->
         <section>
-          <p>Part 2</p>
-          <h1>The Fall</h1>
+          <section>
+            <p>Part 2</p>
+            <h1>The Fall</h1>
+          </section>
+          <section class="center">
+            <img src="img/martinibad.png" alt="" />
+          </section>
+          <section data-background="img/angry.gif"></section>
+          <section class="center">
+            <img src="img/kelsey.png" alt="" />
+          </section>
+          <section class="center">
+            <img src="img/thoughts.png" alt="" />
+          </section>
+          <section data-background="img/negroni.png"></section>
+          <section>
+            <pre><code class="go" data-trim>
+n := negroni.Classic()
+n.Use(Middleware)
+
+n.UseHandler(router)
+n.Run(":3000")
+            </code></pre>
+          </section>
+          <section>
+            <h3>Lessons learned?</h3>
+          </section>
+          <section>
+            <h3>Humility</h3>
+            <h3 class="fragment">Empathy</h3>
+            <h3 class="fragment">Community Focus</h3>
+          </section>
         </section>
 
         <!-- The Rebirth -->
@@ -119,8 +209,17 @@
             <p>The Disciplined Pursuit of Less</p>
           </section>
 
+          <section class="center">
+            <img src="img/lonestar.png" alt="" />
+          </section>
+
           <section>
-            TODO: Lone Star Pic
+            <h2>http.Handler</h2>
+            <p>The missing link all along</p>
+          </section>
+
+          <section>
+            <h1>Practical Examples</h1>
           </section>
 
           <section>
@@ -129,19 +228,59 @@
           </section>
 
           <section>
-            <h2>Render</h2>
-            <p>Easily render JSON, XML, binary data, and HTML templates</p>
+            <h4>codegangsta/negroni</h4>
           </section>
 
           <section>
             <h2>httprouter</h2>
             <p>A high performance HTTP request router that scales well</p>
           </section>
+
+          <section>
+            <h4>julienschmidt/httprouter</h4>
+          </section>
+
+          <section>
+            <h2>Render</h2>
+            <p>Easily render JSON, XML, binary data, and HTML templates</p>
+          </section>
+
+          <section>
+            <h4>unrolled/render</h4>
+          </section>
+
+          <section>
+            <h3>And More...</h3>
+
+            <p>gorilla/context</p>
+            <p>gorilla/sessions</p>
+            <p>gorilla/schema</p>
+            <p>codegangsta/gin</p>
+            <p>markbates/goth</p>
+          </section>
+
+          <section>
+            <h1>Takeaway?</h1>
+          </section>
+
+          <section>
+            <h3>Be Humble</h3>
+            <h3 class="fragment">Always Improve</h3>
+            <h3 class="fragment">Pursue Less</h3>
+          </section>
+
+          <section>
+            <h3>@codegangsta</h3>
+          </section>
+
         </section>
 
 
       </div>
 		</div>
+
+
+    <div class="stripe"></div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
