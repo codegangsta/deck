@@ -5,3 +5,7 @@
 body {
   font-family: "Inter Variable", sans-serif;
 }
+
+.align-center {
+  @apply w-full h-full flex flex-col justify-center;
+}
