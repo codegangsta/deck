@@ -19,35 +19,25 @@ Jeremy Saenz | Synadia
 
 ---
 
-# Here's a slide
+# The breakdown
 
-- With some bullet points
-- With some bullet points
-- With some bullet points
-- With some bullet points
+- **Why Go?**
+- **Go's Design Philosophy**
+- **Practice (Let's write a program together)**
 
 ---
 
-## Some code fences...
-<div class="grid grid-cols-2 w-full gap-4">
-  <div>
-    Golang...
-    ```go
-    func Hello() string {
-      return "Hello, world"
-    }
-    ```
-  </div>
+<img src="/gopher.png" class="absolute top-0 -right-80 -rotate-90" />
 
-  <div>
-    Other languages...
-    ```go
-    func Hello() string {
-      return "Hello, world"
-    }
-    ```
-  </div>
-</div>
+# The tl;dr on Go
+
+- Simple, easy to learn general purpose language
+- Statically typed code, Statically linked binaries
+- Garbage collected
+- Fast compile times
+- Comprehensive standard library
+- Incredible toolset and ecosystem
+- **Missing lots of features you don't really need**
 
 ---
 
@@ -55,48 +45,178 @@ Jeremy Saenz | Synadia
 
 ---
 
-# Pragmatism and Tradeoffs
+# In an era of trendy languages...
+
+---
+
+# Go will offend your sensibilities
+
+---
+
+<div class="w-full flex justify-center">
+  <img src="/astronaut.png" class="w-96 h-96"/>
+</div>
+
+---
+
+<div class="w-full flex justify-center">
+  <img src="/array.jpg" class="h-96 rounded"/>
+</div>
+
+---
+
+<div class="w-full flex justify-center">
+  <img src="/error-handling.jpg" class="h-96 rounded"/>
+</div>
+
+---
+
+<div class="w-full flex justify-center">
+  <img src="/language-features.jpg" class="h-96 rounded"/>
+</div>
+
+---
+
+# Go is a team sport
+#
+<div class="w-full flex justify-center">
+  <img src="/team.jpg" class="w-full -m-4 rounded"/>
+</div>
+
+---
+
+# Go's Design Philosophy: Pragmatism and Tradeoffs
 
 ---
 
 ## Productivity over Abstraction
 
+> Go's purpose is therefore not to do research into programming language design; it is to improve the working environment for its designers and their coworkers. Go is more about software engineering than programming language research. Or to rephrase, it is about language design in the service of software engineering.
+
+Rob Pike: Co-creator
+
 ---
 
 ## Simplicity over Expressiveness
 
+- Minimal Syntax
+- 1-2 ways to accomplish a task
+- Lack of OOP features
+- No syntax sugar like ternary operators, function overloading
+- ~25 keywords
+
+``` go
+type Vertex struct {
+  X int
+  Y int
+}
+```
+
 ---
 
-## Reasability over Writability
+## Readability over Writability
+
+- Explicit error handling
+- Built in formatting standards
+- No operator overloading
+- Minimal magic. Encourages simple, imperitive style
+
+```go
+// you'll see a lot of this in go... embrace the clarity
+if err != nil {
+  // handle your errors
+}
+```
 
 ---
 
 ## Standards over Flexibility
 
+- Standard library is comprehensive and widely used everywhere
+- Common interfaces for most tasks
+- Implicit interfaces for better interoperability
+
+```go
+type Reader interface {
+	Read(p []byte) (n int, err error)
+}
+```
+
 ---
 
 ## Composition over Inheritance
+
+- Inheritance doesn't exist in Go
+- **Struct/Interface Embedding** is your answer
+- Interface-oriented design
+- Separation of Behavior (Methods) and Data (Structs)
+
+```go
+type ReadWriter interface {
+  Reader
+  Writer
+}
+```
+---
+
+## Error values over exceptions
+
+```go
+func FindUser(username string) (*db.User, error) {
+    u, err := db.Find(username)
+    if err != nil {
+        // Error wrapping and propagation is common in go.
+        // Think of this as a slot to insert any extra logic like cleanup.
+        return nil, fmt.Errorf("FindUser: failed executing db query: %w", 
+          err)
+    }
+    return u, nil
+}
+```
 
 ---
 
 ## Compile times over Optimization
 
+- Go offers incredibly fast build times
+- No cyclic dependencies
+- Efficient dependency analysis
+- Easy to parse syntax (Single pass, top down recursive descent)
+- No Symbol tables
+- Dependencies listed at the top of files
+
 ---
 
 ## GC over memory management
 
----
-
-## Error values over exceptions
+- Manual memory management can be very expensive and time consuming
+- Go's GC is fast and easily manageable
+- Low latency
+- Concurrent
 
 ---
 
 ## First class concurrency
 
+- Easy to write performant concurrent code
+- Little to no difference between sync and async constructs
+- Goroutines are green threads, can spin up lots of them with little overhead.
+- Channels, Mutexes, Select statements
+
+```go
+// Here's me calling a function syncronously
+DoSomeWork()
+// Here's me calling it in a goroutine
+go DoSomeWork()
+```
+
 ---
 
 ## Backward compatibility over innovation
 
+- Go focuses on not breaking backward compatibility
+- Older Go programs always compile on newer versions
+
 ---
 
-# Pragmatism and Tradeoffs
+# Let's Write a Go program
