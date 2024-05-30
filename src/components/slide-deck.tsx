@@ -5,7 +5,11 @@ interface Props {
 }
 
 export default function SlideDeck(props: ParentProps<Props>) {
-  const [location, setLocation] = createSignal(0)
+  let loc = window.location.hash.slice(1)
+  if (loc == "") {
+    loc = "0"
+  }
+  const [location, setLocation] = createSignal(parseInt(loc))
 
   const slides = () => {
     const el = props.children as HTMLElement
