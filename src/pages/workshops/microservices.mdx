@@ -40,9 +40,10 @@ layout: "../../layouts/slides.astro"
 
 ---
 
-[Image|80](https://avatars.githubusercontent.com/u/178316?v=4)
-
-### Jeremy Saenz
+<div class="flex flex-row gap-4 items-center -mb-12">
+  <img class="w-16 h-16 rounded-full" src="/headshot.jpg"/>
+  <span class="text-4xl font-semibold text-white">Jeremy Saenz</span>
+</div>
 
 - Long time Gopher (@thecodegangsta)
 - Author of **Martini**, **CLI**, **Negroni**, and more...
@@ -89,7 +90,7 @@ It aims to **simplify** the number of technologies you use for your services to 
 
 ---
 
-# Introducing NATS
+## Introducing NATS
 
 - Location-independent addressing
 - M:N communications
@@ -136,13 +137,23 @@ It aims to **simplify** the number of technologies you use for your services to 
 
 ---
 
+### Exercise #0:
+
+## Install Go
+
+[https://go.dev/dl](https://go.dev/dl)
+
+```bash
+go version
+```
+
+---
+
 ### Exercise #1:
 
 ## Install the NATS CLI
 
 ---
-
-##### Install the NATS CLI
 
 ## Now it's your turn!
 
@@ -161,11 +172,9 @@ $ nats help
 
 ---
 
-##### Connecting the Room Part I
-
 ## Setting up a NATS context
 
-```
+```bash
 $ nats context save --select demo \
     --server "nats://demo.nats.io:4222"
 
@@ -176,50 +185,42 @@ $ nats context save --select demo \
 
 ---
 
-##### Connecting the Room Part I
-
 ## Calling the guestbook service
 
 ```
-$ nats req gophercon.guestbook ""
+$ nats req workshop.guestbook ""
 ```
 
 ---
 
-##### Connecting the Room Part I
-
 ## Hosting your own service
 
 ```
-$ nats reply gophercon.rollcall \
+$ nats reply workshop.rollcall \
     "YOUR NAME HERE" --queue ""
 ```
 
 ---
 
-##### Connecting the Room Part I
-
 ## Play the queue group lottery
 
 ```
-$ nats reply gophercon.lottery \
+$ nats reply workshop.lottery \
     "YOUR NAME HERE" --queue "lottery"
 ```
 
 ---
 
-##### Connecting the Room Part I
-
 ## Poor-mans chat
 
 ```
-$ nats sub "gophercon.chatroom.>"
+$ nats sub "workshop.chatroom.>"
 ```
 
 And in another window:
 
 ```
-$ nats pub gophercon.chatroom.[handle] \
+$ nats pub workshop.chatroom.[handle] \
     "Your Message Here"
 ```
 
@@ -231,8 +232,6 @@ $ nats pub gophercon.chatroom.[handle] \
 
 ---
 
-##### NATS For Micro-service Architectures
-
 ## What makes a good architecture?
 
 - Resilient
@@ -242,8 +241,6 @@ $ nats pub gophercon.chatroom.[handle] \
 - Adaptive to change
 
 ---
-
-##### NATS For Micro-service Architectures
 
 ## What NATS gives us
 
@@ -255,8 +252,6 @@ $ nats pub gophercon.chatroom.[handle] \
 
 ---
 
-##### NATS For Micro-service Architectures
-
 ## Resilience
 
 - **Clients** self heal and reconnect to available servers automatically
@@ -265,8 +260,6 @@ $ nats pub gophercon.chatroom.[handle] \
 - **Load balancing** comes for **free**
 
 ---
-
-##### NATS For Micro-service Architectures
 
 ## Secure Multi-tenancy
 
@@ -278,8 +271,6 @@ $ nats pub gophercon.chatroom.[handle] \
 
 ---
 
-##### NATS For Micro-service Architectures
-
 ## Location Transparency
 
 Location transparency is a key characteristic of service-oriented architecture.
@@ -290,8 +281,6 @@ The lookup and dynamic binding to a service at runtime allows the service implem
 
 ---
 
-##### NATS For Micro-service Architectures
-
 ## Location Transparency
 
 - Free **Service Discovery** via subject based addressing
@@ -301,8 +290,6 @@ The lookup and dynamic binding to a service at runtime allows the service implem
 
 ---
 
-##### NATS For Micro-service Architectures
-
 ## Observability
 
 - **Observe traffic** in real time
@@ -310,8 +297,6 @@ The lookup and dynamic binding to a service at runtime allows the service implem
 - **Filter metrics ingestion** via subjects
 
 ---
-
-##### NATS For Micro-service Architectures
 
 ## Multi-pattern development
 
@@ -323,13 +308,9 @@ The lookup and dynamic binding to a service at runtime allows the service implem
 
 ---
 
-#### Exercise #3:
-
 ## Building a Go Micro-service
 
 ---
-
-##### Building a Go MicroService
 
 ## NATS `micro` package
 
@@ -340,8 +321,6 @@ The lookup and dynamic binding to a service at runtime allows the service implem
 - Metadata
 
 ---
-
-##### Building a Go MicroService
 
 ## Start a `micro` from NATS CLI
 
@@ -358,8 +337,6 @@ $ nats req hello.echo ""
 
 ---
 
-##### Building a Go MicroService
-
 ## Start a new Go project
 
 ```bash
@@ -369,8 +346,6 @@ $ go get github.com/nats-io/nats.go@latest
 ```
 
 ---
-
-#### Exercise #4:
 
 ## Connecting the Room Part II
 
@@ -382,8 +357,6 @@ $ go get github.com/nats-io/nats.go@latest
 
 ---
 
-##### NATS Server Topologies
-
 ## Global Scale and Diversity
 
 - **Single Server** - Millions of messages per sec. ~70GiB throughput
@@ -391,8 +364,6 @@ $ go get github.com/nats-io/nats.go@latest
 - **Leaf Nodes** - Extend a NATS system with your own private island
 
 ---
-
-##### NATS Server Topologies
 
 ## An Illustrated Guide
 
@@ -416,8 +387,6 @@ $ go get github.com/nats-io/nats.go@latest
 
 ---
 
-##### NATS JetStream
-
 ## What is JetStream?
 
 JetStream is a next-gen persistence layer built on top of NATS Core that allows temporal decoupling between subscribers and publishers.
@@ -425,8 +394,6 @@ JetStream is a next-gen persistence layer built on top of NATS Core that allows 
 It is multi-tenant, highly configurable and globally scalable.
 
 ---
-
-##### NATS JetStream
 
 ## What is JetStream?
 
@@ -438,15 +405,11 @@ It is multi-tenant, highly configurable and globally scalable.
 
 ---
 
-##### NATS JetStream
-
 ## JetStream Demo
 
 https://nats-whiteboard.onrender.com/?room=rhxghz9f
 
 ---
-
-##### NATS JetStream
 
 ## An Illustrated Guide
 
@@ -479,11 +442,5 @@ https://nats-whiteboard.onrender.com/?room=rhxghz9f
 #### Bonus Lecture:
 
 ## Authentication and Authorization
-
----
-
----
-
----
 
 ---
