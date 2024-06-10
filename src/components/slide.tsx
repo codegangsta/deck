@@ -12,7 +12,7 @@ export default function Slide(props: ParentProps<Props>) {
       <div class={cn(
         "scale-100 hd:scale-150 fhd:scale-[200%] w-[960px] h-[540px] flex items-center",
       )}>
-        <div class="prose prose-2xl prose-invert p-20 max-w-none w-full prose-ul:leading-7 prose-code:leading-6">
+        <div class="prose prose-2xl prose-invert p-20 max-w-none w-full prose-ul:leading-7 prose-code:leading-6 relative">
           {props.children}
         </div>
       </div>
