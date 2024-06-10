@@ -187,7 +187,7 @@ $ nats context save --select demo \
 
 ## Calling the guestbook service
 
-```
+```bash
 $ nats req workshop.guestbook ""
 ```
 
@@ -195,7 +195,7 @@ $ nats req workshop.guestbook ""
 
 ## Hosting your own service
 
-```
+```bash
 $ nats reply workshop.rollcall \
     "YOUR NAME HERE" --queue ""
 ```
@@ -204,7 +204,7 @@ $ nats reply workshop.rollcall \
 
 ## Play the queue group lottery
 
-```
+```bash
 $ nats reply workshop.lottery \
     "YOUR NAME HERE" --queue "lottery"
 ```
@@ -213,13 +213,13 @@ $ nats reply workshop.lottery \
 
 ## Poor-mans chat
 
-```
+```bash
 $ nats sub "workshop.chatroom.>"
 ```
 
 And in another window:
 
-```
+```bash
 $ nats pub workshop.chatroom.[handle] \
     "Your Message Here"
 ```
